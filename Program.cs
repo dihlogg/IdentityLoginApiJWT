@@ -80,6 +80,8 @@ builder.Services.AddApplicationServicesExtension();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.Configure<DataProtectionTokenProviderOptions>(options => options.TokenLifespan = TimeSpan.FromHours(10));
+
 var app = builder.Build();
 
 app.UseDefaultFiles();

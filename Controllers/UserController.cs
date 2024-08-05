@@ -3,6 +3,8 @@ using IdentityWebApiSample.Server.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace IdentityWebApiSample.Server.Controllers
 {
@@ -55,6 +57,20 @@ namespace IdentityWebApiSample.Server.Controllers
                 // Log the exception (ex) here if necessary
                 return StatusCode(StatusCodes.Status500InternalServerError, ex.Message);
             }
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public async Task<IActionResult> ForgotPassword([Required] string email)
+        {
+            //var user = await _userSystem.FindByEmailAsync(email);
+            //if (user != null)
+            //{
+            //    var token = await _userSystem.GeneratePasswordResetTokenAsync(user);
+            //    var forgetPasswordLink = Url.Action("ResetPassword", "Authentication", new { token, email = user.Email }, Request.Scheme);
+            //    var message = new Message
+            //}
+            return Ok();
         }
     }
 }
